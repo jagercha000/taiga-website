@@ -4,10 +4,19 @@
 @import url('loader.css');
 * {
   font-family: "Exo", sans-serif;
+  box-sizing: border-box;
 }
 
 :root {
   --theme-dark-background: #000000;
   --theme-dark-accent-background: #111111;
   --theme-text: #ffffff;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100vw;
+  height: 100vh;
 }
