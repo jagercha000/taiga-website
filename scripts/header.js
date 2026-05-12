@@ -12,6 +12,7 @@ globalThis.hooks['header-init'] = function() {
     });
   });
   document.body.addEventListener('click', function(evt) {
+    var allowedClasses = [ 'header-menu-dropdown-content', 'header-menu-dropdown-button' ];
     hideHeaderDropdowns();
   });
 };
