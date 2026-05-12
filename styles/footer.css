@@ -1,1 +1,3 @@
-
+footer {
+  background: var(--theme-dark-accent-background);
+}
