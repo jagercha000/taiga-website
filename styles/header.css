@@ -1,1 +1,30 @@
+.header-menu-item {
+  display: inline-flex;
+  font-size: 13pt;
+  text-decoration: none;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 10px;
+  background: transparent;
+  height: 96px;
+  margin: 0;
+}
 
+.header-menu-item:hover {
+  background: #ffffff55;
+}
+
+.logo-button {
+  font-weight: bold;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  background: var(--theme-background-accent-dark);
+  width: 100%;
+  height: 96px;
+}
