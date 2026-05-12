@@ -24,7 +24,7 @@ header {
   flex-direction: row;
   padding: 0;
   margin: 0;
-  background: var(--theme-background-accent-dark);
+  background: var(--theme-dark-accent-background);
   width: 100%;
   height: 96px;
 }
