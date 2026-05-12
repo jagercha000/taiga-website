@@ -1,1 +1,1 @@
-[Open Site](https://jagercha000.github.io/reimagined-goggles/)
+[Open Site](https://jagercha000.github.io/taiga-website/)
