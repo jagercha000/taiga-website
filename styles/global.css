@@ -26,3 +26,7 @@ html, body {
 body {
   background: var(--theme-dark-background);
 }
+
+.centered {
+  text-align: center;
+}
