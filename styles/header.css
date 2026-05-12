@@ -1,7 +1,6 @@
 .header-menu {
   display: inline-flex;
   flex-direction: row;
-  margin-left: 25px;
 }
 
 .header-menu-item {
