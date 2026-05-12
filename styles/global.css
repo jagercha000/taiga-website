@@ -5,3 +5,9 @@
 * {
   font-family: "Exo", sans-serif;
 }
+
+:root {
+  --theme-dark-background: #000000;
+  --theme-dark-accent-background: #111111;
+  --theme-text: #ffffff;
+}
