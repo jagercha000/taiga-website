@@ -30,3 +30,7 @@ body {
 .centered {
   text-align: center;
 }
+
+.hidden {
+  display: none;
+}
