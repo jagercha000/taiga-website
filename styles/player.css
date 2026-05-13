@@ -1,3 +1,4 @@
 .player-frame {
   border: 0;
+  overflow: hidden;
 }
