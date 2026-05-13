@@ -38,6 +38,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9999;
 }
 
 .header-menu-dropdown-content {
@@ -53,7 +54,6 @@ header {
   justify-content: center;
   align-items: center;
   justify-items: center;
-  z-index: 9999;
 }
 
 .header-menu-dropdown-content a {
