@@ -1,6 +1,6 @@
 globalThis.hooks = globalThis.hooks || new Object();
-function callHook(hookId) {
-  return globalThis.hooks[hookId]();
+function callHook(hookId, ...args) {
+  return globalThis.hooks[hookId](...args);
 }
 import "./header.js"
 import "./footer.js"
@@ -40,8 +40,11 @@ function hideLoader() {
 async function init() {
   callHook('loader-init');
   await loadComponents();
+  callHook('loader-update', 5);
   injectIcon();
+  callHook('loader-update', 6);
   modifyTitles();
+  callHook('loader-update', 7);
   hideLoader();
 }
 window.addEventListener('load', init);
