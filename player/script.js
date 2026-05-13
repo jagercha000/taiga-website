@@ -13,5 +13,5 @@ window.addEventListener('load', function() {
     playerCanvas.height = window.innerHeight;
   }
   updatePlayerCanvasSize();
-  window.addEventListener('resize', updatePlayerCanvasSize);
+  window.addEventListener('resize', updatePlayerCanvasSize.bind(this));
 });
