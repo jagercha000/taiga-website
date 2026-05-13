@@ -30,7 +30,7 @@
   background-clip: text;
   background-size: 600% 100%;
   background-position-x: 0%;
-  transition: background-position-x 250ms linear;
+  transition: background-position-x 500ms linear;
 }
 
 .logo-button:hover .logo-button-text {
