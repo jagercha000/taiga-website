@@ -6,6 +6,7 @@ import "./header.js"
 import "./footer.js"
 import "./loader.js"
 import "./constants.js"
+import "./player.js"
 function processComponent(componentContent) {
   componentContent = componentContent.replaceAll('%SITENAME%', siteName);
   componentContent = componentContent.replaceAll('%SITE%', sitePath);
