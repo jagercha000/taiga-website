@@ -11,5 +11,6 @@
 }
 
 .gallery-prev-arrow path, .gallery-next-arrow path {
-  stroke: inherit;
+  stroke: currentColor;
+  color: inherit;
 }
