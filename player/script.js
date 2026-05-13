@@ -7,4 +7,11 @@ window.addEventListener('load', function() {
     element.setAttribute('src', playerScript);
     document.head.appendChild(element);
   }
+  var playerCanvas = document.querySelector('.player-canvas');
+  function updatePlayerCanvasSize() {
+    playerCanvas.width = window.innerWidth;
+    playerCanvas.height = window.innerHeight;
+  }
+  updatePlayerCanvasSize();
+  window.addEventListener('resize', updatePlayerCanvasSize);
 });
