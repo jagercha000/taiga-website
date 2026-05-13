@@ -1,3 +1,4 @@
+globalThis.player = globalThis.player || new Object();
 window.addEventListener('load', function() {
   var urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('id')) {
@@ -14,4 +15,5 @@ window.addEventListener('load', function() {
   }
   updatePlayerCanvasSize();
   window.addEventListener('resize', updatePlayerCanvasSize.bind(this));
+  globalThis.player.canvas = playerCanvas;
 });
