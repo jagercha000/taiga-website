@@ -46,7 +46,7 @@ async function init() {
     callHook('loader-update', 6);
     modifyTitles();
     callHook('loader-update', 7);
-    setTimeout(hideLoader, 1000);
-  }, 1000);
+    setTimeout(hideLoader, 2000);
+  }, 2000);
 }
 window.addEventListener('load', init);
