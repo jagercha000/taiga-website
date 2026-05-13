@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
     var playerScript = "./players/" + urlParams.get('id') + ".js";
     var element = document.createElement('script');
     element.setAttribute('type', 'module');
-    element.setAttribute('src', element);
+    element.setAttribute('src', playerScript);
     document.head.appendChild(element);
   }
 });
