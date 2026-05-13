@@ -22,12 +22,24 @@ function createGalleryButtons() {
   document.body.appendChild(prevBtn);
   document.body.appendChild(nextBtn);
 }
-function createGalleryCaption() {}
-function createGalleryPicture(picture) {}
+function createGalleryCaption() {
+  var element = document.createElement('p');
+  element.setAttribute('class', 'gallery-caption');
+  document.body.appendChild(element);
+}
+function createGalleryPicture(picture, parent) {
+  var element = document.createElement('div');
+  element.setAttribute('class', 'gallery-picture hidden');
+  element.style.backgroundImage = 'url("' + picture.blob + '")';
+  parent.appendChild(element);
+}
 function createGalleryPictures() {
-  globalThis.player.galleryData.forEach(function(picture) {
-    createGalleryPicture(picture);
-  });
+  var parent = document.createElement('div');
+  parent.setAttribute('class', 'gallery-picture-container');
+  document.body.appendChild(parent);
+  globalThis.player.galleryData.forEach((function(picture) {
+    createGalleryPicture(picture, parent);
+  }).bind(this));
 }
 globalThis.player.galleryData = globalThis.player.galleryData || [];
 (async function() {
