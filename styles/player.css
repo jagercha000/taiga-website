@@ -1,4 +1,7 @@
 .player-frame {
   border: 0;
   overflow: hidden;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
