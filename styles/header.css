@@ -4,9 +4,11 @@
 }
 
 .header-logo {
-  filter: invert(1);
   margin-right: 3px;
   display: inline-block;
+  height: 75%;
+  mask-image: url("../assets/favicon.png");
+  background-color: var(--theme-text);
 }
 
 .header-menu-item {
