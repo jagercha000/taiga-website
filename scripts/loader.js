@@ -11,4 +11,4 @@ globalThis.hooks['loader-hide'] = function() {
       document.querySelector('.loader-overlay').classList.add('hidden');
     }});
   }, 2500);
-);};
+};
