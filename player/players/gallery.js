@@ -80,6 +80,10 @@ function createGalleryPictures() {
 }
 globalThis.player.galleryData = globalThis.player.galleryData || [];
 (async function() {
+  var element = document.createElement('div');
+  element.setAttribute('class', 'gallery-loading');
+  element.innerHTML = "<p>Loading</p>";
+  document.body.appendChild(element);
   globalThis.player.galleryData = await fetchPictureMetadata();
   for(var i=0;i<globalThis.player.galleryData.length;i++) {
     globalThis.player.galleryData[i].blob = await downloadPicture(globalThis.player.galleryData[i]);
@@ -87,5 +91,8 @@ globalThis.player.galleryData = globalThis.player.galleryData || [];
   createGalleryButtons();
   createGalleryCaption();
   createGalleryPictures();
-  selectPicture(0);
+  gsap.fromTo('.gallery-loading', { opacity: 0 }, { opacity: 1, duration: 1, onComplete: function() {
+    document.querySelector('.gallery-loading').classList.add('hidden');
+    selectPicture(0);
+  }));
 })();
