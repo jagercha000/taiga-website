@@ -1,1 +1,11 @@
-
+.home-hero {
+  position: relative;
+  top: -21px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
