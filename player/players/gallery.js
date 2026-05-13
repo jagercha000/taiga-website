@@ -91,8 +91,10 @@ globalThis.player.galleryData = globalThis.player.galleryData || [];
   createGalleryButtons();
   createGalleryCaption();
   createGalleryPictures();
-  gsap.fromTo('.gallery-loading', { opacity: 0 }, { opacity: 1, duration: 1, onComplete: function() {
-    document.querySelector('.gallery-loading').classList.add('hidden');
-    selectPicture(0);
-  }));
+  setTimeout(function() {
+    gsap.fromTo('.gallery-loading', { opacity: 0 }, { opacity: 1, duration: 1, onComplete: function() {
+      document.querySelector('.gallery-loading').classList.add('hidden');
+      selectPicture(0);
+    }));
+  }, 10000);
 })();
