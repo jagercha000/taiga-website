@@ -1,4 +1,4 @@
-var siteName = "Taiga";
-var sitePath = "/taiga-website/";
-var authors = "Charles Jager and Linden Ling";
-var currentYear = new Date().getFullYear();
+globalThis.siteName = "Taiga";
+globalThis.sitePath = "/taiga-website/";
+globalThis.authors = "Charles Jager and Linden Ling";
+globalThis.currentYear = new Date().getFullYear();
