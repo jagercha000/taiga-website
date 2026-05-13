@@ -41,10 +41,12 @@ async function init() {
   callHook('loader-init');
   await loadComponents();
   callHook('loader-update', 5);
-  injectIcon();
-  callHook('loader-update', 6);
-  modifyTitles();
-  callHook('loader-update', 7);
-  setTimeout(hideLoader, 1000);
+  setTimeout(function() {
+    injectIcon();
+    callHook('loader-update', 6);
+    modifyTitles();
+    callHook('loader-update', 7);
+    setTimeout(hideLoader, 1000);
+  }, 1000);
 }
 window.addEventListener('load', init);
