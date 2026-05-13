@@ -14,7 +14,7 @@ globalThis.player.galleryData = globalThis.player.galleryData || [];
 (async function() {
   globalThis.player.galleryData = await fetchPictureMetadata();
   for(var i=0;i<globalThis.player.galleryData.length;i++) {
-    globalThis.player.galleryData[i].blob = await downloadPicture(globalThis.player.galleryData[i].url);
+    globalThis.player.galleryData[i].blob = await downloadPicture(globalThis.player.galleryData[i]);
   }
   createGalleryButtons();
   createGalleryPictures();
