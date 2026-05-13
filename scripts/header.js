@@ -9,8 +9,8 @@ globalThis.hooks['header-init'] = function() {
   document.querySelectorAll('.header-menu-dropdown-button').forEach(function(element) {
     element.addEventListener('click', function(evt) {
       var targetDropdown = evt.target.closest('.header-menu-dropdown-button').parentElement.querySelector('.header-menu-dropdown-content');
-      if(!targetDropdown.classList.contains('hidden')) {
-        evt.preventDefault();
+      evt.preventDefault();
+      if(targetDropdown.classList.contains('hidden')) {
         targetDropdown.classList.remove('hidden');
         document.body.classList.add('dropdown-active');
       } else {
