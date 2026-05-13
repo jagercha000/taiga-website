@@ -62,8 +62,12 @@ header {
   text-decoration: none;
   border-radius: 10px;
   background: transparent;
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-menu-dropdown-content a:hover {
-  background: var(--theme-dark-accent-background);
+  background: var(--theme-hover-accent);
 }
