@@ -3,6 +3,12 @@
   flex-direction: row;
 }
 
+.header-logo {
+  filter: invert(1);
+  margin-right: 3px;
+  display: inline-block;
+}
+
 .header-menu-item {
   display: inline-flex;
   font-size: 13pt;
