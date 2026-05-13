@@ -4,6 +4,12 @@
 @import url('loader.css');
 @import url('player.css');
 
+@property --button-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000000;
+}
+
 :root {
   --theme-dark-background: #2b2b2b;
   --theme-dark-accent-background: #4b4b4b;
@@ -89,30 +95,36 @@ button {
   align-content: center;
   justify-content: center;
   transition: all 250ms ease-out;
+  --button-color: var(--theme-button-text);
 }
 
 button:hover {
   background-color: var(--theme-button-hover-background);
   color: var(--theme-button-hover-text);
+  --button-color: var(--theme-button-hover-text);
 }
 
 button.outline-button {
   background: transparent;
   color: var(--theme-accent-1);
   border: 1px solid var(--theme-accent-1);
+  --button-color: var(--theme-accent-1);
 }
 
 button.outline-button:hover {
   background: var(--theme-accent-1);
   color: var(--theme-dark-accent-background);
+  --button-color: var(--theme-dark-accent-background);
 }
 
 button.theme-button {
   background: var(--theme-accent-1);
   color: var(--theme-dark-accent-background);
+  --button-color: var(--theme-dark-accent-background);
 }
 
 button.theme-button:hover {
   background: var(--theme-accent-2);
   color: var(--theme-dark-accent-background);
+  --button-color: var(--theme-dark-accent-background);
 }
