@@ -8,6 +8,8 @@
   --theme-dark-accent-background: #4b4b4b;
   --theme-text: #dddddd;
   --theme-hover-accent: #ffffff22;
+  --theme-accent-1: #3ade76;
+  --theme-accent-2: #d9b857;
 }
 
 * {
