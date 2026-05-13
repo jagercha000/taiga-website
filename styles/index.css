@@ -29,5 +29,5 @@
   background-image: linear-gradient(to bottom, var(--background-overlay), var(--background-overlay)), url('../assets/hero-background.jpg');
   background-size: 125%;
   background-position: 0% 0%;
-  animation: panBackground 60s linear infinite;
+  animation: panBackground 240s linear infinite;
 }
