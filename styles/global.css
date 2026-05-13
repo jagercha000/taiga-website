@@ -128,3 +128,8 @@ button.theme-button:hover {
   color: var(--theme-dark-accent-background);
   --button-color: var(--theme-dark-accent-background);
 }
+
+.paragraph {
+  padding: 20px;
+  padding-top: 0;
+}
