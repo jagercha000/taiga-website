@@ -27,7 +27,7 @@
   font-size: 21pt;
   color: var(--theme-text);
   background-clip: text;
-  background: linear-gradient(90deg, var(--theme-text) 0%, var(--theme-text) 60%, #d9b857 69%, #3ade76 78%, #3ade76 100%);
+  background: linear-gradient(90deg, var(--theme-text) 0%, var(--theme-text) 60%, var(--theme-accent-2) 69%, var(--theme-accent-1) 78%, var(--theme-accent-1) 100%);
 }
 
 header {
