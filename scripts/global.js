@@ -5,10 +5,7 @@ function callHook(hookId) {
 import "./header.js"
 import "./footer.js"
 import "./loader.js"
-var siteName = "Taiga";
-var sitePath = "/taiga-website/";
-var authors = "Charles Jager and Linden Ling";
-var currentYear = new Date().getFullYear();
+import "./constants.js"
 function processComponent(componentContent) {
   componentContent = componentContent.replaceAll('%SITENAME%', siteName);
   componentContent = componentContent.replaceAll('%SITE%', sitePath);
