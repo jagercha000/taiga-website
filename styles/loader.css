@@ -22,3 +22,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.ldBar path.mainline {
+  stroke: var(--theme-accent-1);
+  stroke-linecap: round;
+}
