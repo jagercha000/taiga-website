@@ -1,3 +1,4 @@
+import "../lib/loading-bar.js"
 globalThis.hooks = globalThis.hooks || new Object();
 globalThis.hooks['loader-init'] = function() {
   globalThis.loadingBar = new ldBar('.loader', { 'preset': 'circle', 'value': 0, 'stroke': '#ffffff', 'stroke-width': 3 });
