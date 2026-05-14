@@ -17,7 +17,7 @@ globalThis.player.climateData.nextSeason = null;
 globalThis.player.climateData.opacity = 1;
 globalThis.player.climateData.animationActive = false;
 globalThis.player.climateData.direction = -1;
-globalThis.player.climateData.mod = 0.01;
+globalThis.player.climateData.mod = 0.05;
 function processFade() {
   if(globalThis.player.climateData.nextSeason != null) {
     globalThis.player.climateData.animationActive = true;
