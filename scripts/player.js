@@ -1,6 +1,6 @@
 import "./constants.js"
 globalThis.hooks = globalThis.hooks || new Object();
-globalThis.hooks['notify-player-loaded'] = function() {
+globalThis.hooks['notify-player-load'] = function() {
   document.querySelectorAll('.player-frame').forEach(function(frame) {
     frame.contentWindow.postMessage({ 'type': 'LOAD' }, '*');
   });
