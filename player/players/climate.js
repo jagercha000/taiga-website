@@ -23,12 +23,13 @@ globalThis.player.climateData.animationActive = false;
 globalThis.player.climateData.direction = -1;
 globalThis.player.climateData.mod = 0.05;
 globalThis.player.climateData.mouseCoords = { x: -1, y: -1 };
+globalThis.player.climateData.seasons = [ "winter", "summer" ];
 function processHitboxes() {
   var hitHitbox = false;
   globalThis.player.climateData.hitboxes[globalThis.player.climateData.currentSeason].forEach((function(hitbox) {
     var calulatedHitbox = globalThis.player.climateUtil.calculateHitbox(hitbox.x, hitbox.y, hitbox.width, hitbox.height);
     var mousePos = globalThis.player.util.getMouseCoords();
-    if(globalThis.player.util.collision(mousePos.x, mousePos.y, 0, 0, calculatedHitbox.x, calculatedHitbox.y, calculatedHitbox.width, calculatedHitbox.height);
+    if(globalThis.player.util.collision(mousePos.x, mousePos.y, 0, 0, calculatedHitbox.x, calculatedHitbox.y, calculatedHitbox.width, calculatedHitbox.height)) {
       hitHitbox = true;
   }
   }).bind(this));
