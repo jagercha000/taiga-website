@@ -1,3 +1,3 @@
 window.addEventListener('load', function() {
-  createPlayer('climate', document.querySelector('.climate-player'), 800, 400);
+  createPlayer('climate', document.querySelector('.climate-player'), 700, 400);
 });
