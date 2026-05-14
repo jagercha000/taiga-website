@@ -128,3 +128,6 @@ element.addEventListener('click', function() {
   globalThis.player.climateUtil.changeSeason(newSeason);
 });
 document.body.appendChild(element);
+var captionElement = document.createElement('div');
+captionElement.setAttribute('class', 'climate-caption hidden');
+document.body.appendChild(captionElement);
