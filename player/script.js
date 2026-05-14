@@ -1,4 +1,10 @@
 globalThis.player = globalThis.player || new Object();
+globalThis.player.util = globalThis.player.util || new Object();
+globalThis.player.util.downloadImage = function(url) {
+  var result = await fetch('../assets/' + url);
+  var blob = await result.blob();
+  return URL.createObjectURL(blob);
+};
 window.addEventListener('load', async function() {
   var urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('id')) {
