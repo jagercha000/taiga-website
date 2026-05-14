@@ -10,6 +10,10 @@
   initial-value: #000000;
 }
 
+body {
+  display: unset!important;
+}
+
 :root {
   --theme-dark-background: #2b2b2b;
   --theme-dark-accent-background: #4b4b4b;
