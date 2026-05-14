@@ -18,7 +18,7 @@ globalThis.player.checkLoadState = function() {
           globalThis.player._loadedCallback();
         }
       }});
-    }, 5000);
+    }, 2500);
   }
 };
 globalThis.player.stopLoading = function(callback=null) {

@@ -11,9 +11,6 @@ globalThis.hooks['loader-hide'] = function() {
   setTimeout(function() {
     gsap.fromTo('.loader-overlay', { opacity: 1 }, { opacity: 0, duration: 1, onComplete: function() {
       document.querySelector('.loader-overlay').classList.add('hidden');
-      document.querySelectorAll('.player-frame').forEach(function(frame) {
-        frame.window.postMessage({ 'type': 'LOAD' }, '*');
-      });
     }});
   }, 2500);
 };

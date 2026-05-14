@@ -37,6 +37,7 @@ function modifyTitles() {
 }
 function hideLoader() {
   callHook('loader-hide');
+  callHook('notify-player-load');
 }
 async function init() {
   callHook('loader-init');
