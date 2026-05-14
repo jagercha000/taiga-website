@@ -13,7 +13,7 @@ globalThis.player.util.fitImage = function(image) {
     var newHeight = image.height * scale;
     var x = (canvasWidth - newWidth) / 2;
     var y = (canvasHeight - newHeight) / 2;
-    globalThis.player.context.drawImage(img, x, y, newWidth, newHeight);
+    globalThis.player.context.drawImage(image, x, y, newWidth, newHeight);
 };
 window.addEventListener('load', async function() {
   var urlParams = new URLSearchParams(window.location.search);
