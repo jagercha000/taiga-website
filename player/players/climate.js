@@ -6,7 +6,7 @@ var element = document.createElement('div');
 element.setAttribute('class', 'climate-loading');
 element.innerText = "Loading";
 document.body.appendChild(element);
-async function registerImage(id, duration) {
+async function registerImage(id, url) {
   globalThis.player.climateData.images[id] = new Object();
   globalThis.player.climateData.images[id].url = await globalThis.player.util.downloadImage(url);
   globalThis.player.climateData.images[id].image = new Image();
