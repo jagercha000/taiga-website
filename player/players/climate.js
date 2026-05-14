@@ -28,6 +28,9 @@ globalThis.player.climateData.direction = -1;
 globalThis.player.climateData.mod = 0.005;
 globalThis.player.climateData.seasons = [ "winter", "summer" ];
 function processHitboxes(click, evt) {
+  if(globalThis.player.climateData.animationActive) {
+    return;
+  }
   var hitHitbox = false;
   globalThis.player.climateData.hitboxes[globalThis.player.climateData.currentSeason].forEach((function(hitbox) {
     var calculatedHitbox = globalThis.player.climateUtil.calculateHitbox(hitbox.x, hitbox.y, hitbox.width, hitbox.height);
