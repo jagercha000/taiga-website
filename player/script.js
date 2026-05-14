@@ -5,6 +5,11 @@ globalThis.player.util.downloadImage = async function(url) {
   var blob = await result.blob();
   return URL.createObjectURL(blob);
 };
+globalThis.player.util.collision = function(x1, y1, w1, h1, x2, y2, w2, h2) {
+  var collideX = (x1 + w1) >= x2 && x1 <= (x2 + w2);
+  var collideY = (y1 + h1) >= y2 && y1 <= (y2 + h2);
+  return collideX && collideY;
+};
 globalThis.player.util.fitImage = function(image) {
     var canvasWidth = globalThis.player.canvas.width;
     var canvasHeight = globalThis.player.canvas.height;
