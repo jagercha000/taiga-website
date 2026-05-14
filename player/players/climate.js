@@ -6,13 +6,24 @@ var element = document.createElement('div');
 element.setAttribute('class', 'climate-loading');
 element.innerText = "Loading";
 document.body.appendChild(element);
-async function registerImage(id, url) {
+async function registerImage(id, duration) {
   globalThis.player.climateData.images[id] = new Object();
   globalThis.player.climateData.images[id].url = await globalThis.player.util.downloadImage(url);
   globalThis.player.climateData.images[id].image = new Image();
   globalThis.player.climateData.images[id].image.src = globalThis.player.climateData.images[id].url;
   globalThis.player.climateData.hitboxes[id] = [];
 }
+globalThis.player.climateUtil.showCaption = function(text, duration) {
+  document.querySelector('.climate-caption-container').classList.remove('hidden');
+  document.querySelector('.climate-caption').innerText = text;
+  gsap.fromTo('.climate-caption-container', { opacity: 0 }, { opacity: 1, duration: 1, onComplete: function() {
+    setTimeout(function() {
+      gsap.fromTo('.climate-caption-container', { opacity: 1 }, { opacity: 0, duration: 1, onComplete: function() {
+        document.querySelector('.climate-caption-container').classList.add('hidden');
+      }});
+    }, duration);
+  }});
+};
 await registerImage("winter", "climate/winter.jpg");
 await registerImage("summer", "climate/summer.jpg");
 globalThis.player.climateData.hitboxes.summer.push({ x: 2676, y: 252, width: 222, height: 690, click: function() { alert("Temp!"); }});
