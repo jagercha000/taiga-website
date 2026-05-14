@@ -21,7 +21,15 @@ globalThis.player.climateUtil.showCaption = function(text, duration) {
   }});
 };
 await registerImage("winter", "climate/winter.jpg");
+await registerImage("spring", "climate/spring.jpg");
 await registerImage("summer", "climate/summer.jpg");
+await registerImage("autumn", "climate/autumn.jpg");
+globalThis.player.climateData.hitboxes.spring.push({ x: 2676, y: 252, width: 222, height: 690, click: function() {
+  globalThis.player.climateUtil.showCaption("Temp!", 4000);
+}});
+globalThis.player.climateData.hitboxes.spring.push({ x: 0, y: 1311, width: 3000, height: 376, click: function() {
+  globalThis.player.climateUtil.showCaption("Permafrost!", 4000);
+}});
 globalThis.player.climateData.hitboxes.summer.push({ x: 2676, y: 252, width: 222, height: 690, click: function() {
   globalThis.player.climateUtil.showCaption("Temp!", 4000);
 }});
@@ -31,11 +39,16 @@ globalThis.player.climateData.hitboxes.summer.push({ x: 312, y: 147, width: 729,
 globalThis.player.climateData.hitboxes.summer.push({ x: 0, y: 1311, width: 3000, height: 376, click: function() {
   globalThis.player.climateUtil.showCaption("Acid!", 4000);
 }});
+globalThis.player.climateData.hitboxes.autumn.push({ x: 2676, y: 252, width: 222, height: 690, click: function() {
+  globalThis.player.climateUtil.showCaption("Temp!", 4000);
+}});
+globalThis.player.climateData.hitboxes.autumn.push({ x: 0, y: 1311, width: 3000, height: 376, click: function() {
+  globalThis.player.climateUtil.showCaption("Permafrost!", 4000);
+}});
 globalThis.player.climateData.hitboxes.winter.push({ x: 2676, y: 252, width: 222, height: 690, click: function() {
   globalThis.player.climateUtil.showCaption("Low Temp!", 4000);
 }});
 globalThis.player.climateData.hitboxes.winter.push({ x: 0, y: 1311, width: 3000, height: 376, click: function() {
-  
   globalThis.player.climateUtil.showCaption("Permafrost!", 4000);
 }});
 globalThis.player.climateData.currentSeason = "winter";
@@ -44,7 +57,7 @@ globalThis.player.climateData.opacity = 1;
 globalThis.player.climateData.animationActive = false;
 globalThis.player.climateData.direction = -1;
 globalThis.player.climateData.mod = 0.005;
-globalThis.player.climateData.seasons = [ "winter", "summer" ];
+globalThis.player.climateData.seasons = [ "winter", "spring", "summer", "autumn" ];
 function processHitboxes(click, evt) {
   if(globalThis.player.climateData.animationActive) {
     return;
