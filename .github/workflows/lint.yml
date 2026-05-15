@@ -1,0 +1,27 @@
+jobs:
+  run-lint:
+    name: Validate Code Syntax
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: read
+      statuses: write # Allows the linter to post success/fail marks on commits
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for the linter to calculate modified file diffs
+
+      - name: Lint HTML, CSS, and JS
+        uses: super-linter/super-linter/slim@v7 # Light image targeting web/script files
+        env:
+          VALIDATE_ALL_CODEBASE: false # Only inspect files modified in the current push
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+          # Explicitly enable only the web engines you need
+          VALIDATE_HTML: true       # Uses HTMLHint
+          VALIDATE_CSS: true        # Uses Stylelint
+          VALIDATE_JAVASCRIPT_ES: true # Uses ESLint
