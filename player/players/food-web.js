@@ -4,7 +4,7 @@ globalThis.player.foodData.background.url = await globalThis.player.util.downloa
 globalThis.player.foodData.background.image = new Image();
 globalThis.player.foodData.background.image.src = globalThis.player.foodData.background.url;
 function foodWebFrame() {
-  globalThis.player.util.fitImage(globalThis.player.foodData.background);
+  globalThis.player.util.fitImage(globalThis.player.foodData.background.image);
   window.requestAnimationFrame(foodWebFrame);
 }
 window.requestAnimationFrame(foodWebFrame);
