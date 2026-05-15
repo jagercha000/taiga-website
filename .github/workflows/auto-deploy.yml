@@ -33,6 +33,7 @@ jobs:
           VALIDATE_HTML: true       # Uses HTMLHint
           VALIDATE_CSS: true        # Uses Stylelint
           VALIDATE_JAVASCRIPT_ES: true # Uses ESLint
+          LINTER_RULES_PATH: /
       - name: Configure Git Bot
         env:
           GIT_AUTHOR_NAME: "github-actions[bot]"
