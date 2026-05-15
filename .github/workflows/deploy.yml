@@ -47,7 +47,7 @@ jobs:
           mkdir -p .github
           # Write directly to a file on main to force a genuine contribution metric
           date > .github/bot-last-run.txt
-          "deploy.yml" > .github/bot-last-action.txt
+          echo "deploy.yml" > .github/bot-last-action.txt
           
           git add -f .github/bot-last-run.txt
           git add -f .github/bot-last-action.txt
