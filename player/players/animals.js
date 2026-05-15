@@ -20,4 +20,7 @@ function animalsFrame() {
   window.requestAnimationFrame(animalsFrame);
 }
 window.requestAnimationFrame(animalsFrame);
+globalThis.player.canvas.addEventListener('click', function(evt) {
+  processHitboxes(true, evt);
+});
 globalThis.player.stopLoading();
