@@ -1,6 +1,107 @@
 {
-  "deer": {
-    "predators": [],
+  "tree": {
+    "type": "plant",
+    "role": "producer",
+    "predators": [
+      "mushrooms",
+      "moose"
+    ],
     "prey": []
+  },
+  "lingonberries": {
+    "type": "plant",
+    "role": "producer",
+    "predators": [
+      "deer",
+      "moose"
+    ],
+    "prey": []
+  },
+  "grass": {
+    "type": "plant",
+    "role": "producer",
+    "predators": [
+      "deer",
+      "moose",
+      "mouse"
+    ],
+    "prey": []
+  },
+  "fish": {
+    "type": "animal",
+    "role": "consumer",
+    "predators": [
+      "bear"
+    ],
+    "prey": []
+  },
+  "mushrooms": {
+    "type": "fungi",
+    "role": "decomposer",
+    "predators": [],
+    "prey": [
+      "tree"
+    ]
+  },
+  "deer": {
+    "type": "animal",
+    "role": "consumer",
+    "predators": [
+      "wolf",
+      "lynx"
+    ],
+    "prey": [
+      "lingonberries",
+      "grass"
+    ]
+  },
+  "moose": {
+    "type": "animal",
+    "role": "consumer",
+    "predators": [
+      "wolf"
+    ],
+    "prey": [
+      "tree",
+      "lingonberries",
+      "grass"
+    ]
+  },
+  "mouse": {
+    "type": "animal",
+    "role": "consumer",
+    "predators": [
+      "bear"
+    ],
+    "prey": [
+      "grass"
+    ]
+  },
+  "wolf": {
+    "type": "animal",
+    "role": "secondary-consumer",
+    "predators": [],
+    "prey": [
+      "deer",
+      "moose"
+    ]
+  },
+  "lynx": {
+    "type": "animal",
+    "role": "secondary-consumer",
+    "predators": [],
+    "prey": [
+      "deer"
+    ]
+  },
+  "bear": {
+    "type": "animal",
+    "role": "secondary-consumer",
+    "predators": [],
+    "prey": [
+      "fish",
+      "lingonberries",
+      "mouse"
+    ]
   }
 }
