@@ -81,6 +81,51 @@ globalThis.player.foodUtil.calculateHitbox = function(x, y, width, height) {
   var newHeight = height * ratio;
   return { x: newX, y: newY, width: newWidth, height: newHeight };
 };
+globalThis.player.foodUtil.drawArrowBetweenRects = function(r1, r2, color, alpha, headLength=15) {
+  var c1x = r1.x + r1.width / 2;
+  var c1y = r1.y + r1.height / 2;
+  var c2x = r2.x + r2.width / 2;
+  var c2y = r2.y + r2.height / 2;
+  var dx = c2x - c1x;
+  var dy = c2y - c1y;
+  var startX = c1x;
+  var startY = c1y;
+  var endX = c2x;
+  var endY = c2y;
+  if (Math.abs(dx) * r1.height > Math.abs(dy) * r1.width) {
+    startX += (dx > 0 ? 1 : -1) * (r1.width / 2);
+    startY += (dx > 0 ? 1 : -1) * (r1.width / 2) * (dy / dx);
+  } else {
+    startX += (dy > 0 ? 1 : -1) * (r1.height / 2) * (dx / dy);
+    startY += (dy > 0 ? 1 : -1) * (r1.height / 2);
+  }
+  if (Math.abs(dx) * r2.height > Math.abs(dy) * r2.width) {
+    endX -= (dx > 0 ? 1 : -1) * (r2.width / 2);
+    endY -= (dx > 0 ? 1 : -1) * (r2.width / 2) * (dy / dx);
+  } else {
+    endX -= (dy > 0 ? 1 : -1) * (r2.height / 2) * (dx / dy);
+    endY -= (dy > 0 ? 1 : -1) * (r2.height / 2);
+  }
+  var angle = Math.atan2(endY - startY, endX - startX);
+  globalThis.player.context.save();
+  globalThis.player.context.globalAlpha = alpha;
+  globalThis.player.context.beginPath();
+  globalThis.player.context.strokeStyle = color;
+  globalThis.player.context.fillStyle = color;
+  globalThis.player.context.lineWidth = 4;
+  globalThis.player.context.setLineDash([8, 8]);
+  globalThis.player.context.moveTo(startX, startY);
+  globalThis.player.context.lineTo(endX, endY);
+  globalThis.player.context.stroke();
+  globalThis.player.context.setLineDash([]);
+  globalThis.player.context.beginPath();
+  globalThis.player.context.moveTo(endX, endY);
+  globalThis.player.context.lineTo(endX - headLength * Math.cos(angle - Math.PI / 6), endY - headLength * Math.sin(angle - Math.PI / 6));
+  globalThis.player.context.lineTo(endX - headLength * Math.cos(angle + Math.PI / 6), endY - headLength * Math.sin(angle + Math.PI / 6));
+  globalThis.player.context.closePath();
+  globalThis.player.context.fill();
+  globalThis.player.context.restore();
+};
 function foodWebFrame() {
   processHitboxes(false, null);
   globalThis.player.util.fitImage(globalThis.player.foodData.background.image);
@@ -94,6 +139,21 @@ function foodWebFrame() {
     var rawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == key)[0];
     var rect = globalThis.player.foodUtil.calculateHitbox(rawRect.x, rawRect.y, rawRect.width, rawRect.height);
     globalThis.player.context.drawImage(globalThis.player.foodData.animals[key].image, rect.x, rect.y, rect.width, rect.height);
+    var relation = globalThis.player.foodData.relations[key];
+    for(var j=0;j<relation.predators.length;j++) {
+      var predator = relation.predators[j];
+      var predatorRawRect = globalThis.player.foodData.hitboxes[predator];
+      var predatorRect = globalThis.player.foodUtil.calculateHitbox(predatorRawRect.x, predatorRawRect.y, predatorRawRect.width, predatorRawRect.height);
+      var color = globalThis.player.foodData.colors.arrow;
+      globalThis.player.drawArrowBetweenRects(predatorRect, rect, color.hex, color.alpha, 15);
+    }
+    for(var k=0;k<relation.prey.length;k++) {
+      var prey = relation.prey[k];
+      var preyRawRect = globalThis.player.foodData.hitboxes[prey];
+      var preyRect = globalThis.player.foodUtil.calculateHitbox(preyRawRect.x, preyRawRect.y, preyRawRect.width, preyRawRect.height);
+      var color = globalThis.player.foodData.colors.arrow;
+      globalThis.player.drawArrowBetweenRects(rect, preyRect, color.hex, color.alpha, 15);
+    }
   }
   globalThis.player.foodUtil.highlightAnimal("deer", globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
   window.requestAnimationFrame(foodWebFrame);
