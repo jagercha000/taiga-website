@@ -10,7 +10,7 @@ function hit(id) {
   alert(id);
 }
 globalThis.player.foodData.hitboxes.push({ id: "grass", x: 576, y: 451, width: 86, height: 39, click: function() { hit("grass"); }});
-globalThis.player.foodData.hitboxes.push({ id: "lingonberries", x: 464, y: 541, width: 77, height: 59, click: function() { hit("lingonberries"); }});
+globalThis.player.foodData.hitboxes.push({ id: "lingonberries", x: 461, y: 438, width: 77, height: 49, click: function() { hit("lingonberries"); }});
 globalThis.player.foodData.hitboxes.push({ id: "tree", x: 320, y: 414, width: 78, height: 85, click: function() { hit("tree"); }});
 globalThis.player.foodData.hitboxes.push({ id: "mouse", x: 665, y: 281, width: 81, height: 44, click: function() { hit("mouse"); }});
 globalThis.player.foodData.hitboxes.push({ id: "moose", x: 531, y: 262, width: 78, height: 70, click: function() { hit("moose"); }});
