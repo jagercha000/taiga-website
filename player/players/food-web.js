@@ -13,6 +13,7 @@ globalThis.player.foodData.relations = await result.json();
 globalThis.player.foodData.animals = new Object();
 var keys = Object.keys(globalThis.player.foodData.relations);
 for(var i=0;i<keys.length;i++) {
+  var animal = keys[i];
   globalThis.player.foodData.animals[animal] = new Object();
   globalThis.player.foodData.animals[animal].url = await globalThis.player.util.downloadImage('food-web/images/animals/' + animal + '.png');
   globalThis.player.foodData.animals[animal].image = new Image();
