@@ -24,7 +24,7 @@ jobs:
       - name: Lint HTML, CSS, and JS
         uses: super-linter/super-linter/slim@v7 # Light image targeting web/script files
         env:
-          VALIDATE_ALL_CODEBASE: false # Only inspect files modified in the current push
+          VALIDATE_ALL_CODEBASE: true # Only inspect files modified in the current push
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USE_FIND_ALGORITHM: true     # 2. Use file lookup instead of git diff rules
