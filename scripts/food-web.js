@@ -1,3 +1,3 @@
 window.addEventListener('load', function() {
-  createPlayer('food-web', document.querySelector('.food-web-player'), 900, 600);
+  createPlayer('food-web', document.querySelector('.food-web-player'), 800, 450);
 });
