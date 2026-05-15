@@ -51,6 +51,7 @@ globalThis.player.predatorsUtil.calculateHitbox = function(x, y, width, height) 
   return { x: newX, y: newY, width: newWidth, height: newHeight };
 };
 function predatorsFrame() {
+  globalThis.player.util.clearCanvas();
   processHitboxes(false, null);
   globalThis.player.util.fitImage(globalThis.player.predatorsData.background.image);
   window.requestAnimationFrame(predatorsFrame);

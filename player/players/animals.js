@@ -116,6 +116,7 @@ globalThis.player.animalUtil.calculateHitbox = function(x, y, width, height) {
   return { x: newX, y: newY, width: newWidth, height: newHeight };
 };
 function animalsFrame() {
+  globalThis.player.util.clearCanvas();
   globalThis.player.util.fitImage(globalThis.player.animalData.background);
   processHitboxes(false, null);
   window.requestAnimationFrame(animalsFrame);

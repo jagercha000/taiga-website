@@ -127,6 +127,7 @@ globalThis.player.foodUtil.drawArrowBetweenRects = function(r1, r2, color, alpha
   globalThis.player.context.restore();
 };
 function foodWebFrame() {
+  globalThis.player.util.clearCanvas();
   processHitboxes(false, null);
   globalThis.player.util.fitImage(globalThis.player.foodData.background.image);
   globalThis.player.context.globalAlpha = globalThis.player.foodData.colors.overlay.alpha;
@@ -142,14 +143,14 @@ function foodWebFrame() {
     var relation = globalThis.player.foodData.relations[key];
     for(var j=0;j<relation.predators.length;j++) {
       var predator = relation.predators[j];
-      var predatorRawRect = globalThis.player.foodData.hitboxes[predator];
+      var predatorRawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == predator)[0];
       var predatorRect = globalThis.player.foodUtil.calculateHitbox(predatorRawRect.x, predatorRawRect.y, predatorRawRect.width, predatorRawRect.height);
       var color = globalThis.player.foodData.colors.arrow;
       globalThis.player.drawArrowBetweenRects(predatorRect, rect, color.hex, color.alpha, 15);
     }
     for(var k=0;k<relation.prey.length;k++) {
       var prey = relation.prey[k];
-      var preyRawRect = globalThis.player.foodData.hitboxes[prey];
+      var preyRawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == prey)[0];
       var preyRect = globalThis.player.foodUtil.calculateHitbox(preyRawRect.x, preyRawRect.y, preyRawRect.width, preyRawRect.height);
       var color = globalThis.player.foodData.colors.arrow;
       globalThis.player.drawArrowBetweenRects(rect, preyRect, color.hex, color.alpha, 15);
