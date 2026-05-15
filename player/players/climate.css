@@ -21,12 +21,15 @@
   font-weight: bold;
   color: var(--theme-text);
   padding: 40px;
-  padding-left: 120px;
-  padding-right: 120px;
+  padding-left: 80px;
+  padding-right: 80px;
   cursor: default;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   user-select: none;
+  text-align: center;
+  width: max-content;
+  max-width: calc(100% - 128px);
 }

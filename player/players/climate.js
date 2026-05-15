@@ -33,31 +33,31 @@ await registerImage("spring", "climate/spring.jpg");
 await registerImage("summer", "climate/summer.jpg");
 await registerImage("autumn", "climate/autumn.jpg");
 globalThis.player.climateData.hitboxes.spring.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.SPRING_TEMPERATURE, 3000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.SPRING_TEMPERATURE, 2000);
 }});
 globalThis.player.climateData.hitboxes.spring.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, 3000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, 2000);
 }});
 globalThis.player.climateData.hitboxes.summer.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.SUMMER_TEMPERATURE, 3000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.SUMMER_TEMPERATURE, 2000);
 }});
 globalThis.player.climateData.hitboxes.summer.push({ x: 373, y: 167, width: 853, height: 224, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.RAIN, 3000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.RAIN, 2000);
 }});
 globalThis.player.climateData.hitboxes.summer.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.ACIDIC, 3000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.ACIDIC, 2000);
 }});
 globalThis.player.climateData.hitboxes.autumn.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.AUTUMN_TEMPERATURE, 3000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.AUTUMN_TEMPERATURE, 2000);
 }});
 globalThis.player.climateData.hitboxes.autumn.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, 3000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, 2000);
 }});
 globalThis.player.climateData.hitboxes.winter.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.WINTER_TEMP, 3000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.WINTER_TEMPERATURE, 2000);
 }});
 globalThis.player.climateData.hitboxes.winter.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, 3000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, 2000);
 }});
 globalThis.player.climateData.currentSeason = "winter";
 globalThis.player.climateData.nextSeason = null;
