@@ -59,7 +59,7 @@ function processHitboxes(click, evt) {
   if(hitHitbox) {
     globalThis.player.util.setCursor("pointer");
     if(click) {
-      hit(hitbox.id);
+      hit(hitHitbox.id);
     }
   } else {
     globalThis.player.util.setCursor("default");
@@ -134,6 +134,7 @@ function foodWebFrame() {
   globalThis.player.context.fillStyle = globalThis.player.foodData.colors.overlay.hex;
   var canvas = globalThis.player.canvas;
   globalThis.player.context.fillRect(0, 0, canvas.width, canvas.height);
+  globalThis.player.context.globalAlpha = 1;
   var keys = Object.keys(globalThis.player.foodData.animals);
   for(var i=0;i<keys.length;i++) {
     var key = keys[i];
@@ -146,14 +147,14 @@ function foodWebFrame() {
       var predatorRawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == predator)[0];
       var predatorRect = globalThis.player.foodUtil.calculateHitbox(predatorRawRect.x, predatorRawRect.y, predatorRawRect.width, predatorRawRect.height);
       var color = globalThis.player.foodData.colors.arrow;
-      globalThis.player.drawArrowBetweenRects(predatorRect, rect, color.hex, color.alpha, 15);
+      globalThis.player.foodUtil.drawArrowBetweenRects(predatorRect, rect, color.hex, color.alpha, 15);
     }
     for(var k=0;k<relation.prey.length;k++) {
       var prey = relation.prey[k];
       var preyRawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == prey)[0];
       var preyRect = globalThis.player.foodUtil.calculateHitbox(preyRawRect.x, preyRawRect.y, preyRawRect.width, preyRawRect.height);
       var color = globalThis.player.foodData.colors.arrow;
-      globalThis.player.drawArrowBetweenRects(rect, preyRect, color.hex, color.alpha, 15);
+      globalThis.player.foodUtil.drawArrowBetweenRects(rect, preyRect, color.hex, color.alpha, 15);
     }
   }
   globalThis.player.foodUtil.highlightAnimal("deer", globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
