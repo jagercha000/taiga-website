@@ -8,32 +8,31 @@ on:
         default: 'Deploy workflow ran'
 
 jobs:
-  create-and-merge-pr:
+  git-merge-sync:
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
-      contents: write
+      contents: write # Grants git permission to push code directly
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          ref: main
+          fetch-depth: 0 # Fetches all history so git knows both branches exist
 
-      # 1. Automatically Open the PR
-      - name: Create Pull Request
-        id: cpr
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Auto-update from GitHub Action"
-          title: "Automatic PR"
-          branch: "sync/main-to-deploy"
-          base: "deploy"
+      - name: Configure Git Bot
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      # 2. Automatically Enable Auto-Merge for that PR
-      - name: Enable Pull Request Automerge
-        if: steps.cpr.outputs.pull-request-operation == 'created'
-        uses: peter-evans/enable-pull-request-automerge@v3
-        with:
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-          merge-method: merge # Choose: merge, squash, or rebase
+      - name: Merge and Push
+        run: |
+          # Fetch the deploy branch locally
+          git fetch origin deploy:deploy
+          
+          # Switch to deploy branch
+          git checkout deploy
+          
+          # Merge main changes into deploy branch
+          git merge origin/main --allow-unrelated-histories -m "chore: auto-sync main to deploy"
+          
+          # Push the changes straight back up to GitHub
+          git push origin deploy
