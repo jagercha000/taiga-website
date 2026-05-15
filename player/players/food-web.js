@@ -76,7 +76,8 @@ globalThis.player.foodUtil.calculateHitbox = function(x, y, width, height) {
 function foodWebFrame() {
   processHitboxes(false, null);
   globalThis.player.util.fitImage(globalThis.player.foodData.background.image);
-  var rect = globalThis.player.foodUtil.calculateHitbox(globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == "deer")[0]);
+  var rawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == "deer")[0]
+  var rect = globalThis.player.foodUtil.calculateHitbox(rawRect.x, rawRect.y, rawRect.width, rawRect.height);
   globalThis.player.foodUtil.fillEllipseRect(rect.x, rect.y, rect.width, rect.height, "#ffff00", 0.5);
   window.requestAnimationFrame(foodWebFrame);
 }
