@@ -88,12 +88,12 @@ function foodWebFrame() {
   globalThis.player.context.fillStyle = globalThis.player.foodData.colors.overlay.hex;
   var canvas = globalThis.player.canvas;
   globalThis.player.context.fillRect(0, 0, canvas.width, canvas.height);
-  var keys = Object.keys(globalThis.player.animals);
+  var keys = Object.keys(globalThis.player.foodData.animals);
   for(var i=0;i<keys.length;i++) {
     var key = keys[i];
     var rawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == key)[0];
     var rect = globalThis.player.foodUtil.calculateHitbox(rawRect.x, rawRect.y, rawRect.width, rawRect.height);
-    globalThis.player.context.drawImage(globalThis.player.animals[key].image, rect.x, rect.y, rect.width, rect.height);
+    globalThis.player.context.drawImage(globalThis.player.foodData.animals[key].image, rect.x, rect.y, rect.width, rect.height);
   }
   globalThis.player.foodUtil.highlightAnimal("deer", globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
   window.requestAnimationFrame(foodWebFrame);
