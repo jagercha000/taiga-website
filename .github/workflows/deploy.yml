@@ -6,6 +6,9 @@ on:
         description: 'Reason for running'
         required: false
         default: 'Deploy workflow ran'
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   git-merge-sync:
