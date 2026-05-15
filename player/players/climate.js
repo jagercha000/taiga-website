@@ -2,13 +2,13 @@ globalThis.player.climateData = globalThis.player.climateData || new Object();
 globalThis.player.climateData.images = globalThis.player.climateData.images || new Object();
 globalThis.player.climateData.hitboxes = globalThis.player.climateData.hitboxes || new Object();
 globalThis.player.climateData.captions = globalThis.player.climateData.captions || new Object();
-globalThis.player.climateData.captions.WINTER_TEMPERATURE = "WINTER_TEMPERATURE";
+globalThis.player.climateData.captions.WINTER_TEMPERATURE = "Winter temperatures in taigas can drop to -40°F.";
 globalThis.player.climateData.captions.SPRING_TEMPERATURE = "SPRING_TEMPERATURE";
 globalThis.player.climateData.captions.SUMMER_TEMPERATURE = "SUMMER_TEMPERATURE";
 globalThis.player.climateData.captions.AUTUMN_TEMPERATURE = "AUTUMN_TEMPERATURE";
 globalThis.player.climateData.captions.PERMAFROST = "PERMAFROST";
-globalThis.player.climateData.captions.ACIDIC = "ACIDIC";
-globalThis.player.climateData.captions.RAIN = "RAIN";
+globalThis.player.climateData.captions.ACIDIC = "Soil in taigias is acidic, which makes it hard for plants to grow.";
+globalThis.player.climateData.captions.RAIN = "Taigais receive little rainfall, often only 8 to 31 inches each year.";
 globalThis.player.climateUtil = globalThis.player.climateUtil || new Object();
 async function registerImage(id, url) {
   globalThis.player.climateData.images[id] = new Object();
