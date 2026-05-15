@@ -6,6 +6,12 @@ globalThis.player.animalData.animals = globalThis.player.animalData.animals || n
 globalThis.player.animalData.noInteract = false;
 globalThis.player.animalData.hitboxes = [];
 globalThis.player.animalData.hitboxes.push({ x: 40, y: 349, width: 108, height: 67, click: function() { alert("Wolf!"); }});
+globalThis.player.animalData.hitboxes.push({ x: 217, y: 334, width: 83, height: 82, click: function() { alert("Deer!"); }});
+globalThis.player.animalData.hitboxes.push({ x: 357, y: 341, width: 30, height: 71, click: function() { alert("Lynx!"); }});
+globalThis.player.animalData.hitboxes.push({ x: 442, y: 373, width: 77, height: 46, click: function() { alert("Lingonberries!"); }});
+globalThis.player.animalData.hitboxes.push({ x: 553, y: 332, width: 73, height: 79, click: function() { alert("Moose!"); }});
+globalThis.player.animalData.hitboxes.push({ x: 712, y: 385, width: 66, height: 24, click: function() { alert("Mushrooms!"); }});
+globalThis.player.animalData.hitboxes.push({ x: 811, y: 342, width: 131, height: 70, click: function() { alert("Bear!"); }});
 async function registerAnimal(animal) {
   globalThis.player.animalData.animals[animal] = new Object();
   globalThis.player.animalData.animals[animal].url = await globalThis.player.util.downloadImage("animals/animals/" + animal + ".jpg");
