@@ -9,4 +9,7 @@ window.addEventListener('load', function() {
   document.querySelector('.predator-prey-button').addEventListener('click', function() {
     window.location.href = 'predator-prey.html';
   });
+  document.querySelector('.food-web-button').addEventListener('click', function() {
+    window.location.href = 'food-web.html';
+  });
 });
