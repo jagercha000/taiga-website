@@ -5,13 +5,21 @@ globalThis.player.animalData.background.src = await globalThis.player.util.downl
 globalThis.player.animalData.animals = globalThis.player.animalData.animals || new Object();
 globalThis.player.animalData.noInteract = false;
 globalThis.player.animalUtil.info = function(animal) {
+  globalThis.player.animalData.noInteract = true;
   var selector = `.animal-info-dialog[data-animal="${animal}"]`;
   document.querySelector(selector).classList.remove('hidden');
-  gsap.fromTo(selector, { opacity: 0 }, { opacity: 1, duration: 1 });
+  gsap.fromTo(selector, { opacity: 0 }, { opacity: 1, duration: 1, onComplete: function() {
+    globalThis.player.animalData.noInteract = false;
+  }});
 };
 globalThis.player.animalUtil.closeInfo = function(animal) {
+  if(globalThis.player.animalData.noInteract) {
+    return;
+  }
+  globalThis.player.animalData.noInteract = true;
   var selector = `.animal-info-dialog[data-animal="${animal}"]`;
   gsap.fromTo(selector, { opacity: 1 }, { opacity: 0, duration: 1, onComplete: (function() {
+    globalThis.player.animalData.noInteract = false;
     document.querySelector(selector).classList.add('hidden');
   }).bind(this) });
 };
