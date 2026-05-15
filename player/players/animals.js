@@ -31,7 +31,10 @@ globalThis.player.animalData.hitboxes.push({ x: 442, y: 373, width: 77, height: 
 globalThis.player.animalData.hitboxes.push({ x: 553, y: 332, width: 73, height: 79, click: function() { globalThis.player.animalUtil.info("moose"); }});
 globalThis.player.animalData.hitboxes.push({ x: 712, y: 385, width: 66, height: 24, click: function() { globalThis.player.animalUtil.info("mushrooms"); }});
 globalThis.player.animalData.hitboxes.push({ x: 811, y: 342, width: 131, height: 70, click: function() { globalThis.player.animalUtil.info("bear"); }});
-async function registerAnimal(animal, name, sidebarInfo, info) {
+async function registerAnimal(animal) {
+  var result = await globalThis.player.util.fetchAsset("animals/info.json");
+  var json = await result.json();
+  var animalData = json[animal];
   globalThis.player.animalData.animals[animal] = new Object();
   globalThis.player.animalData.animals[animal].url = await globalThis.player.util.downloadImage("animals/animals/" + animal + ".jpg");
   globalThis.player.animalData.animals[animal].image = new Image();
@@ -53,27 +56,27 @@ async function registerAnimal(animal, name, sidebarInfo, info) {
   animalImage.setAttribute('class', 'animal-image');
   leftElement.appendChild(animalImage);
   var animalName = document.createElement('p');
-  animalName.innerHTML = name;
+  animalName.innerHTML = animalData.name;
   animalName.setAttribute('class', 'animal-info-name');
   leftElement.appendChild(animalName);
   var animalSidebarInfo = document.createElement('p');
   animalSidebarInfo.setAttribute('class', 'animal-sidebar-info');
-  animalSidebarInfo.innerHTML = sidebarInfo;
+  animalSidebarInfo.innerHTML = animalData.sidebar;
   leftElement.appendChild(animalSidebarInfo);
   element.appendChild(leftElement);
   var infoElement = document.createElement('p');
   infoElement.setAttribute('class', 'animal-info');
-  infoElement.innerHTML = info;
+  infoElement.innerHTML = animalData.info;
   element.appendChild(infoElement);
   document.body.appendChild(element);
 }
-await registerAnimal('bear', `Bear`, `Sidebar Info`, `Info`);
-await registerAnimal('deer', `Deer`, `Sidebar Info`, `Info`);
-await registerAnimal('lingonberries',`Lingonberries`, `Sidebar Info`, `Info`);
-await registerAnimal('lynx', `Lynx`, `Sidebar Info`, `Info`);
-await registerAnimal('moose', `Moose`, `Sidebar Info`, `Info`);
-await registerAnimal('mushrooms', `Mushrooms`, `Sidebar Info`, `Info`);
-await registerAnimal('wolf', `Wolf`, `Sidebar Info`, `Info`);
+await registerAnimal('bear');
+await registerAnimal('deer');
+await registerAnimal('lingonberries');
+await registerAnimal('lynx');
+await registerAnimal('moose');
+await registerAnimal('mushrooms');
+await registerAnimal('wolf');
 function processHitboxes(click, evt) {
   if(globalThis.player.animalData.noInteract) {
     return;
