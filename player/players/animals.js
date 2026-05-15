@@ -5,7 +5,7 @@ globalThis.player.animalData.background.src = await globalThis.player.util.downl
 globalThis.player.animalData.animals = globalThis.player.animalData.animals || new Object();
 globalThis.player.animalData.noInteract = false;
 globalThis.player.animalData.hitboxes = [];
-globalThis.player.animalData.hitboxes.push({ x: 0, y: 0, width: 50, height: 50, click: function() { alert("Click!"); }});
+globalThis.player.animalData.hitboxes.push({ x: 40, y: 349, width: 108, height: 67, click: function() { alert("Wolf!"); }});
 async function registerAnimal(animal) {
   globalThis.player.animalData.animals[animal] = new Object();
   globalThis.player.animalData.animals[animal].url = await globalThis.player.util.downloadImage("animals/animals/" + animal + ".jpg");
