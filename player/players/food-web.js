@@ -20,8 +20,10 @@ globalThis.player.foodData.hitboxes.push({ id: "fish", x: 121, y: 261, width: 65
 globalThis.player.foodData.hitboxes.push({ id: "bear", x: 514, y: 71, width: 119, height: 65, click: function() { hit("bear"); }});
 globalThis.player.foodData.hitboxes.push({ id: "lynx", x: 399, y: 68, width: 43, height: 71, click: function() { hit("lynx"); }});
 globalThis.player.foodData.hitboxes.push({ id: "wolf", x: 223, y: 69, width: 110, height: 67, click: function() { hit("wolf"); }});
+var result = await globalThis.player.util.fetchAsset('food-web/relations.json');
+globalThis.player.foodData.relations = await result.json();
 globalThis.player.foodUtil.highlightAnimal = function(animal, fill, alpha) {
-  var rawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hotbox.id == animal)[0];
+  var rawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == animal)[0];
   var rect = globalThis.player.foodUtil.calculateHitbox(rawRect.x, rawRect.y, rawRect.width, rawRect.height);
   globalThis.player.foodUtil.fillEllipseRect(rect.x, rect.y, rect.width, rect.height, fill, alpha);
 };
