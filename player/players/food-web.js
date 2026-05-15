@@ -14,7 +14,7 @@ globalThis.player.foodData.hitboxes.push({ id: "lingonberries", x: 461, y: 438, 
 globalThis.player.foodData.hitboxes.push({ id: "tree", x: 320, y: 414, width: 78, height: 85, click: function() { hit("tree"); }});
 globalThis.player.foodData.hitboxes.push({ id: "mouse", x: 665, y: 281, width: 81, height: 44, click: function() { hit("mouse"); }});
 globalThis.player.foodData.hitboxes.push({ id: "moose", x: 531, y: 262, width: 78, height: 70, click: function() { hit("moose"); }});
-globalThis.player.foodData.hitboxes.push({ id: "fooba", x: 357, y: 242, width: 85, height: 99, click: function() { hit("fooba"); }});
+globalThis.player.foodData.hitboxes.push({ id: "deer", x: 357, y: 242, width: 85, height: 99, click: function() { hit("deer"); }});
 globalThis.player.foodData.hitboxes.push({ id: "mushrooms", x: 238, y: 285, width: 84, height: 27, click: function() { hit("mushrooms"); }});
 globalThis.player.foodData.hitboxes.push({ id: "fish", x: 121, y: 261, width: 65, height: 75, click: function() { hit("fish"); }});
 globalThis.player.foodData.hitboxes.push({ id: "bear", x: 514, y: 71, width: 119, height: 65, click: function() { hit("bear"); }});
