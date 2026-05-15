@@ -1,5 +1,4 @@
 {
-  {
   "tagname-lowercase": true,
   "attr-lowercase": true,
   "attr-value-double-quotes": true,
@@ -25,6 +24,15 @@
   "doctype-first": false,
   "head-script-disabled": false,
   "tagname-lowercase": true,
-  "doctype-html5": true
-  "alt-require": true
+  "doctype-html5": true,
+  "alt-require": true,
+  "no-unused-vars": false,
+  "no-undef": false,
+  "no-unsafe-negation": false,
+  "no-redeclare": false,
+  "no-cond-assign": false,
+  "no-useless-escape": false,
+  "getter-return": false,
+  "no-empty": false,
+  "no-func-assign": false
 }
