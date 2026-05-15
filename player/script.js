@@ -27,6 +27,9 @@ globalThis.player.stopLoading = function(callback=null) {
   globalThis.player._playerLoaded = true;
   globalThis.player.checkLoadState();
 };
+globalThis.player.util.fetchAsset = function(url) {
+  return fetch('../assets/' + url);
+};
 globalThis.player.util.downloadImage = async function(url) {
   var result = await fetch('../assets/' + url);
   var blob = await result.blob();
