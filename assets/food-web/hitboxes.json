@@ -10,8 +10,8 @@
     "id": "lingonberries",
     "x": 461,
     "y": 438,
-    "width": 77,
-    "height": 49
+    "width": 50,
+    "height": 75
   },
   {
     "id": "tree",
@@ -43,9 +43,9 @@
   },
   {
     "id": "mushrooms",
-    "x": 238,
+    "x": 258,
     "y": 285,
-    "width": 84,
+    "width": 30,
     "height": 27
   },
   {
