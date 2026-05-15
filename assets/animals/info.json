@@ -1,0 +1,7 @@
+{
+  "bear": {
+    "name": "Bear",
+    "sidebar": `Sidebar`,
+    "info": `Info`,
+  }
+}
