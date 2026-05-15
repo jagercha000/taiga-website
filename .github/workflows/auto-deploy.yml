@@ -8,18 +8,46 @@ on:
         default: 'Deploy workflow ran'
 
 jobs:
-  git-merge-sync:
-    name: Merge Branches
+  lint-code:
+    name: Validate Code
     runs-on: ubuntu-latest
     permissions:
       contents: write # Grants git permission to push code directly
+      packages: read
+      statuses: write
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Fetches all history so git knows both branches exist
           token: ${{ secrets.GITHUB_TOKEN }} 
-
+      - name: Lint HTML, CSS, and JS
+        uses: super-linter/super-linter/slim@v7 # Light image targeting web/script files
+        env:
+          VALIDATE_ALL_CODEBASE: true # Only inspect files modified in the current push
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USE_FIND_ALGORITHM: true     # 2. Use file lookup instead of git diff rules
+          
+          # Explicitly enable only the web engines you need
+          VALIDATE_HTML: true       # Uses HTMLHint
+          VALIDATE_CSS: true        # Uses Stylelint
+          VALIDATE_JAVASCRIPT_ES: true # Uses ESLint
+          LINTER_RULES_PATH: /
+          DISABLE_ERRORS: true
+  git-merge-sync:
+    name: Deploy Website
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Grants git permission to push code directly
+      packages: read
+      statuses: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history so git knows both branches exist
+          token: ${{ secrets.GITHUB_TOKEN }} 
       - name: Configure Git Bot
         env:
           GIT_AUTHOR_NAME: "github-actions[bot]"
@@ -43,7 +71,7 @@ jobs:
           date > .github/bot-last-run.txt
           
           git add -f .github/bot-last-run.txt
-          git commit -m "chore: record automated baseline activity"
+          git commit -m "chore: record last activity"
           git push origin main
       - name: Merge and Push
         run: |
@@ -54,7 +82,7 @@ jobs:
           git checkout deploy
           
           # Merge main changes into deploy branch
-          git merge origin/main --no-ff --allow-unrelated-histories -m "chore: auto-sync main to deploy"
+          git merge origin/main --no-ff --allow-unrelated-histories -m "chore: deploy website"
           
           # Push the changes straight back up to GitHub
           git push origin deploy
