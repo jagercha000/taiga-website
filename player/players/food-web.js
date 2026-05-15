@@ -81,32 +81,28 @@ globalThis.player.foodUtil.calculateHitbox = function(x, y, width, height) {
   var newHeight = height * ratio;
   return { x: newX, y: newY, width: newWidth, height: newHeight };
 };
-globalThis.player.foodUtil.drawArrowBetweenRects = function(r1, r2, color, alpha, headLength=15) {
-  var c1x = r1.x + r1.width / 2;
-  var c1y = r1.y + r1.height / 2;
-  var c2x = r2.x + r2.width / 2;
-  var c2y = r2.y + r2.height / 2;
-  var dx = c2x - c1x;
-  var dy = c2y - c1y;
-  var startX = c1x;
-  var startY = c1y;
-  var endX = c2x;
-  var endY = c2y;
-  if (Math.abs(dx) * r1.height > Math.abs(dy) * r1.width) {
-    startX += (dx > 0 ? 1 : -1) * (r1.width / 2);
-    startY += (dx > 0 ? 1 : -1) * (r1.width / 2) * (dy / dx);
-  } else {
-    startX += (dy > 0 ? 1 : -1) * (r1.height / 2) * (dx / dy);
-    startY += (dy > 0 ? 1 : -1) * (r1.height / 2);
+globalThis.player.foodUtil.drawArrowBetweenRects = function(r1, r2, color, alpha, headLength = 15) {
+  var startX = Math.max(r1.x, Math.min(r2.x + r2.width / 2, r1.x + r1.width));
+  var startY = Math.max(r1.y, Math.min(r2.y + r2.height / 2, r1.y + r1.height));
+  var endX = Math.max(r2.x, Math.min(r1.x + r1.width / 2, r2.x + r2.width));
+  var endY = Math.max(r2.y, Math.min(r1.y + r1.height / 2, r2.y + r2.height));
+  if (r1.x + r1.width < r2.x) {
+    startX = r1.x + r1.width;
+    endX = r2.x;
+  } else if (r2.x + r2.width < r1.x) {
+    startX = r1.x;
+    endX = r2.x + r2.width;
   }
-  if (Math.abs(dx) * r2.height > Math.abs(dy) * r2.width) {
-    endX -= (dx > 0 ? 1 : -1) * (r2.width / 2);
-    endY -= (dx > 0 ? 1 : -1) * (r2.width / 2) * (dy / dx);
-  } else {
-    endX -= (dy > 0 ? 1 : -1) * (r2.height / 2) * (dx / dy);
-    endY -= (dy > 0 ? 1 : -1) * (r2.height / 2);
+  if (r1.y + r1.height < r2.y) {
+    startY = r1.y + r1.height;
+    endY = r2.y;
+  } else if (r2.y + r2.height < r1.y) {
+    startY = r1.y;
+    endY = r2.y + r2.height;
   }
   var angle = Math.atan2(endY - startY, endX - startX);
+  var lineEndX = endX - (headLength - 5) * Math.cos(angle);
+  var lineEndY = endY - (headLength - 5) * Math.sin(angle);
   globalThis.player.context.save();
   globalThis.player.context.globalAlpha = alpha;
   globalThis.player.context.beginPath();
@@ -115,7 +111,7 @@ globalThis.player.foodUtil.drawArrowBetweenRects = function(r1, r2, color, alpha
   globalThis.player.context.lineWidth = 4;
   globalThis.player.context.setLineDash([8, 8]);
   globalThis.player.context.moveTo(startX, startY);
-  globalThis.player.context.lineTo(endX, endY);
+  globalThis.player.context.lineTo(lineEndX, lineEndY);
   globalThis.player.context.stroke();
   globalThis.player.context.setLineDash([]);
   globalThis.player.context.beginPath();
