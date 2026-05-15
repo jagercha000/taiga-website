@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  git-merge-sync:
+  deploy-website:
     name: Deploy Website
     runs-on: ubuntu-latest
     permissions:
