@@ -5,8 +5,9 @@ globalThis.player.foodData.background.url = await globalThis.player.util.downloa
 globalThis.player.foodData.background.image = new Image();
 globalThis.player.foodData.background.image.src = globalThis.player.foodData.background.url;
 globalThis.player.foodData.noInteract = false;
+globalThis.player.foodData.selectedAnimal = null;
 function hit(id) {
-  alert(globalThis.player.foodData.relations[id].name);
+  globalThis.player.foodData.selectedAnimal = id;
 }
 var result = await globalThis.player.util.fetchAsset('food-web/relations.json');
 globalThis.player.foodData.relations = await result.json();
@@ -23,7 +24,12 @@ var colorResult = await globalThis.player.util.fetchAsset('food-web/colors.json'
 globalThis.player.foodData.colors = await colorResult.json();
 var hitboxResult = await globalThis.player.util.fetchAsset('food-web/hitboxes.json');
 globalThis.player.foodData.hitboxes = await hitboxResult.json();
-globalThis.player.foodUtil.highlightAnimal = function(animal, fill, alpha) {
+globalThis.player.foodUtil.highlightAnimal = function(animal, color) {
+  if(!animal) {
+    return;
+  }
+  var fill = color.hex;
+  var alpha = color.alpha;
   var rawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == animal)[0];
   var rect = globalThis.player.foodUtil.calculateHitbox(rawRect.x, rawRect.y, rawRect.width, rawRect.height);
   globalThis.player.foodUtil.fillEllipseRect(rect.x, rect.y, rect.width, rect.height, fill, alpha);
@@ -153,7 +159,7 @@ function foodWebFrame() {
       globalThis.player.foodUtil.drawArrowBetweenRects(rect, preyRect, color.hex, color.alpha, 15);
     }
   }
-  globalThis.player.foodUtil.highlightAnimal("deer", globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
+  globalThis.player.foodUtil.highlightAnimal(globalThis.player.foodData.selectedAnimal, globalThis.player.foodData.colors.selected);
   window.requestAnimationFrame(foodWebFrame);
 }
 window.requestAnimationFrame(foodWebFrame);
