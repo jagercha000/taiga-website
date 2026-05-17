@@ -1,17 +1,17 @@
 {
   "bear": {
     "name": "Bear",
-    "content": "",
+    "content": "Bears are opportunistic omnivors that eat fish and small mammals.",
     "prey": [
       {
         "id": "fish",
         "name": "Fish",
-        "content": ""
+        "content": "Fish are found in many bodies of water."
       },
       {
         "id": "mouse",
         "name": "Small Mammals",
-        "content": ""
+        "content": "Small mammals include mice and other rodents."
       }
     ]
   },
@@ -22,7 +22,7 @@
       {
         "id": "deer",
         "name": "Deer",
-        "content": ""
+        "content": "Deer are hoofed ruminants (animals that graze and ferment plants)."
       }
     ]
   },
@@ -33,12 +33,12 @@
       {
         "id": "deer",
         "name": "Deer",
-        "content": ""
+        "content": "Deer are hoofed ruminants (animals that graze and ferment plants)."
       },
       {
         "id": "moose",
         "name": "Moose",
-        "content": ""
+        "content": "Moose are the largest species in the deer family."
       }
     ]
   }
