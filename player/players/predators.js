@@ -27,6 +27,10 @@ for(var i=0;i<contentKeys.length;i++) {
   titleElement.setAttribute('class', 'predator-name');
   titleElement.innerText = content.name;
   element.appendChild(titleElement);
+  var overviewElement = document.createElement('p');
+  overviewElement.setAttribute('class', 'predator-content');
+  overviewElement.innerText = content.content;
+  element.appendChild(overviewElement);
   var preyElement = document.createElement('div');
   preyElement.setAttribute('class', 'predator-prey');
   for(var j=0;j<content.prey.length;j++) {
