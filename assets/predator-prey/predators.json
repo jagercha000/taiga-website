@@ -1,41 +1,44 @@
 {
   "bear": {
     "name": "Bear",
+    "content": "",
     "prey": [
       {
         "id": "fish",
         "name": "Fish",
-        "content": "Content 1"
+        "content": ""
       },
       {
         "id": "mouse",
         "name": "Small Mammals",
-        "content": "Content 2"
+        "content": ""
       }
     ]
   },
   "lynx": {
     "name": "Lynx",
+    "content": "The lynx is a solitary predator that uses stealth to sneak up on its prey.",
     "prey": [
       {
         "id": "deer",
         "name": "Deer",
-        "content": "Content 3"
+        "content": ""
       }
     ]
   },
   "wolf": {
     "name": "Wolf",
+    "content": "Wolves usually hunt in packs of 3-10. The allows them to take on animals larger than themselves.",
     "prey": [
       {
         "id": "deer",
         "name": "Deer",
-        "content": "Content 4"
+        "content": ""
       },
       {
         "id": "moose",
         "name": "Moose",
-        "content": "Content 5"
+        "content": ""
       }
     ]
   }
