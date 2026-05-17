@@ -7,7 +7,11 @@ globalThis.player.foodData.background.image.src = globalThis.player.foodData.bac
 globalThis.player.foodData.noInteract = false;
 globalThis.player.foodData.selectedAnimal = null;
 function hit(id) {
-  globalThis.player.foodData.selectedAnimal = id;
+  if(globalThis.player.foodData.selectedAnimal == id) {
+    globalThis.player.foodData.selectedAnimal = null;
+  } else {
+    globalThis.player.foodData.selectedAnimal = id;
+  }
 }
 var result = await globalThis.player.util.fetchAsset('food-web/relations.json');
 globalThis.player.foodData.relations = await result.json();
