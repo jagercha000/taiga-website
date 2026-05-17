@@ -3,9 +3,9 @@ globalThis.player.humanData.hitboxes = globalThis.player.humanData.hitboxes || n
 globalThis.player.humanData.captions = globalThis.player.humanData.captions || new Object();
 globalThis.player.humanData.captions.HUNTING = "Hunting reduces animal populations.";
 globalThis.player.humanData.captions.TEMP = "Warming temperatues make life more diffucult in taiga biomes.";
-globalThis.player.humanData.captions.LOGGING = "Logging clears large chunks of taiga, which destory animal habitats.";
+globalThis.player.humanData.captions.LOGGING = "Logging clears large chunks of taiga, which destorys animal habitats.";
 globalThis.player.humanData.captions.POLLUTION = "Human activity can pollute resources in taigas.";
-globalThis.player.humanData.captions.CLOUD = "Pollution causes acid rain which damages plants and poisons soil.";
+globalThis.player.humanData.captions.CLOUD = "Pollution causes acid rain which damages plants and poison the soil.";
 globalThis.player.humanData.captionTime = 4000;
 globalThis.player.humanUtil = globalThis.player.humanUtil || new Object();
 async function registerImage(url) {
