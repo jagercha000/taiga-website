@@ -31,3 +31,17 @@
 .prey-image {
   max-width: 100px;
   max-height: 100px;
+}
+
+.predator-prey {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.prey-info {
+  background: var(--theme-dark-accent-background);
+  border-radius: var(--button-radius);
+}
