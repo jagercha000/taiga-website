@@ -12,4 +12,7 @@ window.addEventListener('load', function() {
   document.querySelector('.food-web-button').addEventListener('click', function() {
     window.location.href = 'food-web.html';
   });
+  document.querySelector('.human-influence-button').addEventListener('click', function() {
+    window.location.href = 'human-influence.html';
+  });
 });
