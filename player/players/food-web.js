@@ -153,7 +153,7 @@ function foodWebFrame() {
   globalThis.player.context.fillText("Selected", 40, canvas.height - 80);
   globalThis.player.context.textAlign = "end";
   if(globalThis.player.foodData.selectedAnimal) {
-    var selectedAnimal = globalThis.player.foodData.selectedAnimal);
+    var selectedAnimal = globalThis.player.foodData.selectedAnimal;
     globalThis.player.context.fillText("Name: " + selectedAnimal.name, 10, 10);
     globalThis.player.context.fillText(selectedAnimal.type, 10, 30);
     globalThis.player.context.fillText("Role: " + selectedAnimal.role, 10, 50);
