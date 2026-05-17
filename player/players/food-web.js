@@ -133,7 +133,7 @@ globalThis.player.foodUtil.drawArrowBetweenRects = function(r1, r2, color, alpha
   globalThis.player.context.restore();
 };
 function foodWebFrame() {
-  globalThis.player.context.font = "14pt Exo";
+  globalThis.player.context.font = "11pt Exo";
   globalThis.player.context.textAlign = "start";
   globalThis.player.util.clearCanvas();
   processHitboxes(false, null);
