@@ -56,11 +56,11 @@ for(var i=0;i<contentKeys.length;i++) {
   document.body.appendChild(wrapperElement);
 }
 function closeHit(evt) {
-  if(globalThis.player.noInteract) {
+  if(globalThis.player.predatorsData.noInteract) {
     return;
   }
   var wrapper = evt.target.closest('.predator-info');
-  globalThis.player.noInteract = true;
+  globalThis.player.predatorsData.noInteract = true;
   gsap.fromTo(wrapper, { opacity: 1 }, { opacity: 0, duration: 1, onComplete: (function() {
     globalThis.player.predatorsData.noInteract = false;
     wrapper.classList.add('hidden');
