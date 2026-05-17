@@ -148,12 +148,12 @@ function foodWebFrame() {
   globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 90, 20, 20, globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
   globalThis.player.context.fillStyle = globalThis.player.foodData.colors.text.hex;
   globalThis.player.context.globalAlpha = globalThis.player.foodData.colors.text.alpha;
-  globalThis.player.context.fillText("Prey", 40, canvas.height - 10);
-  globalThis.player.context.fillText("Predator", 40, canvas.height - 40);
-  globalThis.player.context.fillText("Selected", 40, canvas.height - 70);
+  globalThis.player.context.fillText("Prey", 40, canvas.height - 15);
+  globalThis.player.context.fillText("Predator", 40, canvas.height - 45);
+  globalThis.player.context.fillText("Selected", 40, canvas.height - 75);
   globalThis.player.context.textAlign = "end";
   if(globalThis.player.foodData.selectedAnimal) {
-    var selectedAnimal = globalThis.player.foodData.selectedAnimal;
+    var selectedAnimal = globalThis.player.foodData.relations[globalThis.player.foodData.selectedAnimal];
     globalThis.player.context.fillText("Name: " + selectedAnimal.name, canvas.width - 10, 10);
     globalThis.player.context.fillText(selectedAnimal.type, 10, 30);
     globalThis.player.context.fillText("Role: " + selectedAnimal.role, canvas.width - 10, 50);
