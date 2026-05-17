@@ -30,6 +30,8 @@
   justify-content: center;
   width: 90%;
   height: 90%;
+  padding: 10px;
+  gap: 10px;
 }
 
 .prey-image {
@@ -43,9 +45,22 @@
   align-items: center;
   align-content: center;
   justify-content: center;
+  gap: 10px;
+  width: 100%;
 }
 
 .prey-info {
   background: var(--theme-dark-accent-background);
   border-radius: var(--button-radius);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.prey-name, .predator-name {
+  font-weight: bold;
 }
