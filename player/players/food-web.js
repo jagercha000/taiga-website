@@ -143,14 +143,14 @@ function foodWebFrame() {
   var canvas = globalThis.player.canvas;
   globalThis.player.context.fillRect(0, 0, canvas.width, canvas.height);
   globalThis.player.context.globalAlpha = 1;
-  globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 60, 50, 50, globalThis.player.foodData.colors.prey.hex, globalThis.player.foodData.colors.prey.alpha);
-  globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 120, 50, 50, globalThis.player.foodData.colors.predator.hex, globalThis.player.foodData.colors.predator.alpha);
-  globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 180, 50, 50, globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
+  globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 30, 20, 20, globalThis.player.foodData.colors.prey.hex, globalThis.player.foodData.colors.prey.alpha);
+  globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 60, 20, 20, globalThis.player.foodData.colors.predator.hex, globalThis.player.foodData.colors.predator.alpha);
+  globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 90, 20, 20, globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
   globalThis.player.context.fillStyle = globalThis.player.foodData.colors.text.hex;
   globalThis.player.context.globalAlpha = globalThis.player.foodData.colors.text.alpha;
-  globalThis.player.context.fillText("Prey", 70, canvas.height - 60);
-  globalThis.player.context.fillText("Predator", 70, canvas.height - 120);
-  globalThis.player.context.fillText("Selected", 70, canvas.height - 180);
+  globalThis.player.context.fillText("Prey", 70, canvas.height - 25);
+  globalThis.player.context.fillText("Predator", 70, canvas.height - 55);
+  globalThis.player.context.fillText("Selected", 70, canvas.height - 85);
   globalThis.player.context.globalAlpha = 1;
   var keys = Object.keys(globalThis.player.foodData.animals);
   for(var i=0;i<keys.length;i++) {
