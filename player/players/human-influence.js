@@ -48,7 +48,7 @@ function processHitboxes(click, evt) {
   }
 }
 globalThis.player.humanUtil.calculateHitbox = function(x, y, width, height) {
-  var image = globalThis.player.humanData.image;
+  var image = globalThis.player.humanData.image.image;
   var canvas = globalThis.player.canvas;
   var hRatio = canvas.width / image.width;
   var vRatio = canvas.height / image.height;
@@ -67,7 +67,7 @@ async function humanFrame() {
   globalThis.player.util.clearCanvas();
   processHitboxes(false, null);
   globalThis.player.context.globalAlpha = globalThis.player.humanData.opacity;
-  globalThis.player.util.fitImage(globalThis.player.humanData.image);
+  globalThis.player.util.fitImage(globalThis.player.humanData.image.image);
   globalThis.player.context.globalAlpha = 1;
   window.requestAnimationFrame(humanFrame);
 }
