@@ -1,0 +1,14 @@
+{
+  "bear": {
+    "name": "Bear",
+    "prey": []
+  },
+  "lynx": {
+    "name": "Lynx",
+    "prey": []
+  },
+  "wolf": {
+    "name": "Wolf",
+    "prey": []
+  }
+}
