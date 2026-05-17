@@ -136,7 +136,7 @@ function foodWebFrame() {
   globalThis.player.context.font = "Exo 12pt";
   globalThis.player.context.textAlign = "start";
   var canvas = globalThis.player.canvas;
-  globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 60, 50, 50, globalThis.player.foodData.colors.prey.hex, globalThis.player.foodData.colors.prey.color.alpha);
+  globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 60, 50, 50, globalThis.player.foodData.colors.prey.hex, globalThis.player.foodData.colors.prey.alpha);
   globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 120, 50, 50, globalThis.player.foodData.colors.predator.hex, globalThis.player.foodData.colors.predator.alpha);
   globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 180, 50, 50, globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
   globalThis.player.context.fillStyle = globalThis.player.foodData.colors.text.hex;
