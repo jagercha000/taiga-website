@@ -18,7 +18,7 @@
   right: 10px;
 }
 
-.predator-info-wrapper {
+.predator-info-container {
   display: flex;
   background: var(--theme-dark-background);
   border-radius: var(--button-radius);
@@ -27,3 +27,7 @@
   align-content: center;
   justify-content: center;
 }
+
+.prey-image {
+  max-width: 100px;
+  max-height: 100px;
