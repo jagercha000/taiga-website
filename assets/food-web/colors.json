@@ -18,5 +18,9 @@
   "arrow": {
     "hex": "#ff0000",
     "alpha": 1
+  },
+  "text": {
+    "hex": "#ffffff",
+    "alpha": 1
   }
 }
