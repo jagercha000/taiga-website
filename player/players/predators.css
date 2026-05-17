@@ -64,4 +64,11 @@
 
 .prey-name, .predator-name {
   font-weight: bold;
+  min-height: fit-content;
+}
+
+.predator-content, .prey-content {
+  font-size: 8pt;
+  text-align: center;
+  min-height: fit-content;
 }
