@@ -6,6 +6,8 @@ globalThis.player.predatorsData.background.image = new Image();
 globalThis.player.predatorsData.background.image.src = globalThis.player.predatorsData.background.url;
 globalThis.player.predatorsData.noInteract = false;
 globalThis.player.predatorsData.hitboxes = [];
+var contentResult = await globalThis.player.util.fetchAsset('predator-prey/predators.json');
+globalThis.player.predatorsData.content = await contentResult.json();
 function hit(id) {
   alert(id);
 }
