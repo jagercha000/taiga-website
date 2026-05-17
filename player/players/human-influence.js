@@ -10,9 +10,14 @@ async function registerImage(url) {
   globalThis.player.humanData.image.image = new Image();
   globalThis.player.humanData.image.image.src = globalThis.player.humanData.image.url;
 }
-globalThis.player.humanUtil.showCaption = function(text, duration) {
+globalThis.player.humanUtil.showCaption = function(id) {
+  alert(id);
+  if(!globalThis.player.humanData.captions[id]) {
+    return;
+  }
+  var duration = globalThis.player.humanData.captionTime;
   document.querySelector('.human-caption-container').classList.remove('hidden');
-  document.querySelector('.human-caption').innerText = text;
+  document.querySelector('.human-caption').innerText = globalThis.player.humanData.captions[id];
   gsap.fromTo('.human-caption-container', { opacity: 0 }, { opacity: 1, duration: 0.5, onComplete: function() {
     setTimeout(function() {
       gsap.fromTo('.human-caption-container', { opacity: 1 }, { opacity: 0, duration: 0.5, onComplete: function() {
@@ -23,6 +28,21 @@ globalThis.player.humanUtil.showCaption = function(text, duration) {
 };
 await registerImage("human-influence/human-influence.jpg");
 globalThis.player.humanData.hitboxes = [];
+globalThis.player.humanData.hitboxes.push({ x: 693, y: 309, width: 240, height: 96, click: function() {
+  globalThis.player.humanUtil.showCaption("HUNTING");
+}});
+globalThis.player.humanData.hitboxes.push({ x: 828, y: 34, width: 97, height: 259, click: function() {
+  globalThis.player.humanUtil.showCaption("TEMP");
+}});
+globalThis.player.humanData.hitboxes.push({ x: 430, y: 302, width: 158, height: 113, click: function() {
+  globalThis.player.humanUtil.showCaption("LOGGING");
+}});
+globalThis.player.humanData.hitboxes.push({ x: 0, y: 214, width: 196, height: 212, click: function() {
+  globalThis.player.humanUtil.showCaption("POLLUTION");
+}});
+globalThis.player.humanData.hitboxes.push({ x: 97, y: 44, width: 217, height: 116, click: function() {
+  globalThis.player.humanUtil.showCaption("CLOUD");
+}});
 globalThis.player.humanData.opacity = 1;
 globalThis.player.humanData.animationActive = false;
 function processHitboxes(click, evt) {
