@@ -1,79 +1,37 @@
-globalThis.player.climateData = globalThis.player.climateData || new Object();
-globalThis.player.climateData.images = globalThis.player.climateData.images || new Object();
-globalThis.player.climateData.hitboxes = globalThis.player.climateData.hitboxes || new Object();
-globalThis.player.climateData.captions = globalThis.player.climateData.captions || new Object();
-globalThis.player.climateData.captions.WINTER_TEMPERATURE = "Winter temperatures in taigas can drop to -40°F.";
-globalThis.player.climateData.captions.SPRING_TEMPERATURE = "Taigas in spring have volatile temperatures and snow melts quickly.";
-globalThis.player.climateData.captions.SUMMER_TEMPERATURE = "Taigas in summer is warm and humid, but not very long lasting. Temperatures can range from 20°F to 104°F.";
-globalThis.player.climateData.captions.AUTUMN_TEMPERATURE = "Autumn in taigas is short and temperatures usually are 23-50°F.";
-globalThis.player.climateData.captions.PERMAFROST = "Taigas have a layer of permafrost, where soil is frozen year-round. The means that nutrients are poor, making it difficult for plants to grow.";
-globalThis.player.climateData.captions.ACIDIC = "Soil in taigias is acidic, which makes it hard for plants to grow.";
-globalThis.player.climateData.captions.RAIN = "Taigais receive little rainfall, often only 8 to 31 inches each year.";
-globalThis.player.climateData.captionTime = 4000;
-globalThis.player.climateUtil = globalThis.player.climateUtil || new Object();
-async function registerImage(id, url) {
-  globalThis.player.climateData.images[id] = new Object();
-  globalThis.player.climateData.images[id].url = await globalThis.player.util.downloadImage(url);
-  globalThis.player.climateData.images[id].image = new Image();
-  globalThis.player.climateData.images[id].image.src = globalThis.player.climateData.images[id].url;
-  globalThis.player.climateData.hitboxes[id] = [];
+globalThis.player.humanData = globalThis.player.humanData || new Object();
+globalThis.player.humanData.hitboxes = globalThis.player.humanData.hitboxes || new Object();
+globalThis.player.humanData.captions = globalThis.player.humanData.captions || new Object();
+globalThis.player.humanData.captions.CAPTION = "";
+globalThis.player.humanData.captionTime = 4000;
+globalThis.player.humanUtil = globalThis.player.humanUtil || new Object();
+async function registerImage(url) {
+  globalThis.player.humanData.image = new Object();
+  globalThis.player.humanData.image.url = await globalThis.player.util.downloadImage(url);
+  globalThis.player.humanData.image.image = new Image();
+  globalThis.player.humanData.image.image.src = globalThis.player.humanData.image.url;
 }
-globalThis.player.climateUtil.showCaption = function(text, duration) {
-  document.querySelector('.climate-caption-container').classList.remove('hidden');
-  document.querySelector('.climate-caption').innerText = text;
-  gsap.fromTo('.climate-caption-container', { opacity: 0 }, { opacity: 1, duration: 0.5, onComplete: function() {
+globalThis.player.humanUtil.showCaption = function(text, duration) {
+  document.querySelector('.human-caption-container').classList.remove('hidden');
+  document.querySelector('.human-caption').innerText = text;
+  gsap.fromTo('.human-caption-container', { opacity: 0 }, { opacity: 1, duration: 0.5, onComplete: function() {
     setTimeout(function() {
-      gsap.fromTo('.climate-caption-container', { opacity: 1 }, { opacity: 0, duration: 0.5, onComplete: function() {
-        document.querySelector('.climate-caption-container').classList.add('hidden');
+      gsap.fromTo('.human-caption-container', { opacity: 1 }, { opacity: 0, duration: 0.5, onComplete: function() {
+        document.querySelector('.human-caption-container').classList.add('hidden');
       }});
     }, duration);
   }});
 };
-await registerImage("winter", "climate/winter.jpg");
-await registerImage("spring", "climate/spring.jpg");
-await registerImage("summer", "climate/summer.jpg");
-await registerImage("autumn", "climate/autumn.jpg");
-globalThis.player.climateData.hitboxes.spring.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.SPRING_TEMPERATURE, globalThis.player.climateData.captionTime);
-}});
-globalThis.player.climateData.hitboxes.spring.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, globalThis.player.climateData.captionTime);
-}});
-globalThis.player.climateData.hitboxes.summer.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.SUMMER_TEMPERATURE, globalThis.player.climateData.captionTime);
-}});
-globalThis.player.climateData.hitboxes.summer.push({ x: 373, y: 167, width: 853, height: 224, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.RAIN, globalThis.player.climateData.captionTime);
-}});
-globalThis.player.climateData.hitboxes.summer.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.ACIDIC, globalThis.player.climateData.captionTime);
-}});
-globalThis.player.climateData.hitboxes.autumn.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.AUTUMN_TEMPERATURE, globalThis.player.climateData.captionTime);
-}});
-globalThis.player.climateData.hitboxes.autumn.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, globalThis.player.climateData.captionTime);
-}});
-globalThis.player.climateData.hitboxes.winter.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.WINTER_TEMPERATURE, globalThis.player.climateData.captionTime);
-}});
-globalThis.player.climateData.hitboxes.winter.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, globalThis.player.climateData.captionTime);
-}});
-globalThis.player.climateData.currentSeason = "winter";
-globalThis.player.climateData.nextSeason = null;
-globalThis.player.climateData.opacity = 1;
-globalThis.player.climateData.animationActive = false;
-globalThis.player.climateData.direction = -1;
-globalThis.player.climateData.mod = 0.005;
-globalThis.player.climateData.seasons = [ "winter", "spring", "summer", "autumn" ];
+await registerImage("human-influence/human-influence.jpg");
+globalThis.player.humanData.hitboxes = [];
+globalThis.player.humanData.opacity = 1;
+globalThis.player.humanData.animationActive = false;
 function processHitboxes(click, evt) {
-  if(globalThis.player.climateData.animationActive) {
+  if(globalThis.player.humanData.animationActive) {
     return;
   }
   var hitHitbox = false;
-  globalThis.player.climateData.hitboxes[globalThis.player.climateData.currentSeason].forEach((function(hitbox) {
-    var calculatedHitbox = globalThis.player.climateUtil.calculateHitbox(hitbox.x, hitbox.y, hitbox.width, hitbox.height);
+  globalThis.player.humanData.hitboxes.forEach((function(hitbox) {
+    var calculatedHitbox = globalThis.player.humanUtil.calculateHitbox(hitbox.x, hitbox.y, hitbox.width, hitbox.height);
     var mousePos = null;
     mousePos = globalThis.player.util.getMouseCoords();
     if(globalThis.player.util.collision(mousePos.x, mousePos.y, 0, 0, calculatedHitbox.x, calculatedHitbox.y, calculatedHitbox.width, calculatedHitbox.height)) {
@@ -89,8 +47,8 @@ function processHitboxes(click, evt) {
     globalThis.player.util.setCursor("default");
   }
 }
-globalThis.player.climateUtil.calculateHitbox = function(x, y, width, height) {
-  var image = globalThis.player.climateData.images[globalThis.player.climateData.currentSeason].image;
+globalThis.player.humanUtil.calculateHitbox = function(x, y, width, height) {
+  var image = globalThis.player.humanData.image;
   var canvas = globalThis.player.canvas;
   var hRatio = canvas.width / image.width;
   var vRatio = canvas.height / image.height;
@@ -105,64 +63,22 @@ globalThis.player.climateUtil.calculateHitbox = function(x, y, width, height) {
   var newHeight = height * ratio;
   return { x: newX, y: newY, width: newWidth, height: newHeight };
 };
-function processFade() {
-  if(globalThis.player.climateData.nextSeason != null) {
-    globalThis.player.climateData.animationActive = true;
-    globalThis.player.climateData.opacity += (globalThis.player.climateData.direction * globalThis.player.climateData.mod);
-    if(globalThis.player.climateData.direction < 0 && globalThis.player.climateData.opacity <= 0) {
-      globalThis.player.climateData.opacity = 0;
-      globalThis.player.climateData.direction = 1;
-      globalThis.player.climateData.currentSeason = globalThis.player.climateData.nextSeason;
-    }
-    if(globalThis.player.climateData.direction > 0 && globalThis.player.climateData.opacity >= 1) {
-      globalThis.player.climateData.opacity = 1;
-      globalThis.player.climateData.direction = -1;
-      globalThis.player.climateData.nextSeason = null;
-      globalThis.player.climateData.animatonActive = false;
-    }
-  } else {
-    globalThis.player.climateData.animationActive = false;
-  }
-}
-globalThis.player.climateUtil.changeSeason = function(newSeason) {
-  if(globalThis.player.climateData.animationActive) {
-    return;
-  }
-  globalThis.player.climateData.nextSeason = newSeason;
-};
-async function climateFrame() {
+async function humanFrame() {
   globalThis.player.util.clearCanvas();
-  processFade();
   processHitboxes(false, null);
-  globalThis.player.context.globalAlpha = globalThis.player.climateData.opacity;
-  globalThis.player.util.fitImage(globalThis.player.climateData.images[globalThis.player.climateData.currentSeason].image);
+  globalThis.player.context.globalAlpha = globalThis.player.humanData.opacity;
+  globalThis.player.util.fitImage(globalThis.player.humanData.image);
   globalThis.player.context.globalAlpha = 1;
-  window.requestAnimationFrame(climateFrame);
+  window.requestAnimationFrame(humanFrame);
 }
-window.requestAnimationFrame(climateFrame);
+window.requestAnimationFrame(humanFrame);
 globalThis.player.canvas.addEventListener('click', function(evt) {
   processHitboxes(true, evt);
 });
 globalThis.player.stopLoading();
-var element = document.createElement('button');
-element.setAttribute('class', 'climate-season-button');
-element.innerText = "Change Season";
-element.addEventListener('click', function() {
-  if(globalThis.player.climateData.animationActive) {
-    return;
-  }
-  var seasonIndex = globalThis.player.climateData.seasons.indexOf(globalThis.player.climateData.currentSeason);
-  seasonIndex += 1;
-  if(seasonIndex >= globalThis.player.climateData.seasons.length) {
-    seasonIndex = 0;
-  }
-  var newSeason = globalThis.player.climateData.seasons[seasonIndex];
-  globalThis.player.climateUtil.changeSeason(newSeason);
-});
-document.body.appendChild(element);
 var captionContainerElement = document.createElement('div');
-captionContainerElement.setAttribute('class', 'climate-caption-container hidden');
+captionContainerElement.setAttribute('class', 'human-caption-container hidden');
 var captionElement = document.createElement('div');
-captionElement.setAttribute('class', 'climate-caption');
+captionElement.setAttribute('class', 'human-caption');
 captionContainerElement.appendChild(captionElement);
 document.body.appendChild(captionContainerElement);
