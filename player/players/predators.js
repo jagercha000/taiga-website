@@ -36,7 +36,7 @@ for(var i=0;i<contentKeys.length;i++) {
     preyContentElement.appendChild(preyName);
     var preyImage = document.createElement('img');
     preyImage.setAttribute('class', 'prey-image');
-    preyImage.setAttribute('src', globalThis.player.predatorsData.preyImages[preyId]);
+    preyImage.setAttribute('src', globalThis.player.predatorsData.preyImages[preyId].url);
     preyContentElement.appendChild(preyImage);
     var preyInfo = document.createElement('p');
     preyInfo.setAttribute('class', 'prey-content');
