@@ -160,6 +160,15 @@ function foodWebFrame() {
     }
   }
   globalThis.player.foodUtil.highlightAnimal(globalThis.player.foodData.selectedAnimal, globalThis.player.foodData.colors.selected);
+  if(globalThis.player.foodData.selectedAnimal) {
+    var relation = globalThis.player.foodData.relations[globalThis.player.foodData.selectedAnimal];
+    for(var i=0;i<relation.prey.length;i++) {
+      globalThis.player.foodUtil.highlightAnimal(relation.prey[i], globalThis.player.colors.prey);
+    }
+    for(var j=0;j<relation.predators.length;j++) {
+      globalThis.player.foodUtil.highlightAnimal(relation.predators[j], globalThis.player.colors.predator);
+    }
+  }
   window.requestAnimationFrame(foodWebFrame);
 }
 window.requestAnimationFrame(foodWebFrame);
